@@ -1,0 +1,19 @@
+---
+ftp:
+  host: localhost
+  port: 23
+  username: username
+  passwd: password
+directories:
+  ftp-source: /CURRENT
+  store: ./store
+  archive: ./archive
+playlist:
+  path: ./playlist.m3u
+  remove-delay: 5
+kodi:
+  host: localhost
+  port: 8080
+  protocol: http
+  username: username
+  passwd: password

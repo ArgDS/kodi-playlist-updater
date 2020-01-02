@@ -1,0 +1,8 @@
+venv
+logs
+.idea
+config/application-test.yml
+store
+archive
+*.m3u
+**/__pycache__
