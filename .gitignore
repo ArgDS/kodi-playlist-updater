@@ -4,5 +4,5 @@ logs
 config/application-test.yml
 store
 archive
-*.m3u
+/*.m3u
 **/__pycache__

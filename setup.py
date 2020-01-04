@@ -2,9 +2,8 @@ import pathlib
 import subprocess
 
 from setuptools import setup, find_packages
-from setuptools.command.install import install
 from setuptools.command.develop import develop
-
+from setuptools.command.install import install
 
 __requires__ = ['pipenv']
 
@@ -32,12 +31,12 @@ with open(base_dir / 'README.md', encoding='utf-8') as f:
 
 setup(
     name='dll_api',
-    use_scm_version = True,
+    use_scm_version=True,
     long_description='\n' + long_description,
     packages=packages,
     setup_requires=['setuptools_scm'],
     cmdclass={
         'develop': PostDevelopCommand,
         'install': PostInstallCommand,
-    },
+    }, install_requires=['unittest2']
 )
