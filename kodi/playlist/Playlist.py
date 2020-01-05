@@ -18,5 +18,5 @@ class Playlist:
     def to_playlist(self) -> str:
         items = ""
         for item in self.items:
-            items += "\n" + item.to_item()
+            items += item.to_item()
         return TITLE_TYPE + items

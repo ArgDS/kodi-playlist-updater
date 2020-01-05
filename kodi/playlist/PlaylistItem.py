@@ -10,4 +10,4 @@ class PlaylistItem:
 
     def to_item(self) -> str:
         title = TITLE_ITEM + "0," + self.name
-        return title + "\n" + self.path
+        return "\n" + title.rstrip() + "\n" + self.path.rstrip()

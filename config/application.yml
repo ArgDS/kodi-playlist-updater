@@ -7,6 +7,7 @@ ftp:
 directories:
   ftp-source: /current
   store: ./store
+  store-buffer: ./store-buffer
   archive: ./archive
 playlist:
   path: ./playlist.m3u

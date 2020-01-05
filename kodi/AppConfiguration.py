@@ -27,8 +27,9 @@ class FtpConfiguration:
 class DirectoriesConfiguration:
     def __init__(self, entities: dict):
         self.ftp_source = entities['ftp-source']
-        self.store = entities['store']
-        self.archive = entities['archive']
+        self.store = os.path.abspath(entities['store'])
+        self.store_buffer = os.path.abspath(entities['store-buffer'])
+        self.archive = os.path.abspath(entities['archive'])
 
 
 class PlaylistConfiguration:

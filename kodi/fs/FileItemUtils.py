@@ -9,6 +9,9 @@ class FileItemsResponse:
         self.updated_items = updated_items
         self.deleted_items = deleted_items
 
+    def is_empty(self):
+        return not self.deleted_items and not self.new_items and not self.updated_items
+
 
 class FileItemUtils:
 
