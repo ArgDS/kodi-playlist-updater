@@ -8,6 +8,7 @@ from kodi.fs.FileItem import FileItem
 from kodi.fs.FileItemUtils import FileItemUtils, FileItemsResponse
 from kodi.fs.FileSystemHelper import FileSystemHelper
 from kodi.ftp.FtpService import FtpService
+from kodi.player.PlayerService import PlayerService
 from kodi.playlist.PlaylistUtils import PlaylistUtils
 
 logger = logging.getLogger(__name__)
@@ -16,6 +17,7 @@ logger = logging.getLogger(__name__)
 def run(path):
     logger.info("Start application")
     app_config = load_configuration(path)
+    player_service = PlayerService(app_config.kodi)
     ftp_service = FtpService(app_config.ftp)
     ftp_files = ftp_service.read_file_items(app_config.directories.ftp_source)
     store_files = FileSystemHelper.read_file_items_from_dir(app_config.directories.store)
@@ -25,11 +27,14 @@ def run(path):
         current_playlist = PlaylistUtils.load_from_file(app_config.playlist.path)
         new_playlist = PlaylistUtils.create_actual_playlist(app_config, delta_file_items, store_files, current_playlist)
         downloaded_files = download_files_to_buffer_store(delta_file_items, app_config, ftp_service)
+        player_service.pause()
+        player_service.clean_current_playlist()
         archive_changed_files(delta_file_items, app_config)
         move_files_to_store(downloaded_files, app_config)
-
         updated_playlist_path = PlaylistUtils.save_to_file(new_playlist)
         logger.info("Playlist saved by path \"%s\"" % updated_playlist_path)
+        player_service.add_playlist_by_name(os.path.basename(app_config.playlist.path))
+        player_service.open_playlist()
     else:
         logger.info("Does not find anything")
     ftp_service.close()

@@ -7,7 +7,7 @@ verify_ssl = true
 unittest2 = "*"
 
 [packages]
-jsonrpcclient = "*"
+jsonrpcclient = {extras = ["requests"],version = "*"}
 pyyaml = "*"
 
 [requires]

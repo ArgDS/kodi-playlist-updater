@@ -4,6 +4,10 @@ disable_existing_loggers: False
 formatters:
   simple:
     format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  request:
+    format: "<-- %(message)s"
+  response:
+    format: "<-- %(message)s (%(http_code)s %(http_reason)s)"
 
 handlers:
   console:
@@ -30,6 +34,28 @@ handlers:
     backupCount: 20
     encoding: utf8
 
+  request:
+    formatter: request
+    class: logging.StreamHandler
+    level: INFO
+  response:
+    formatter: response
+    class: logging.StreamHandler
+    level: INFO
+
+loggers:
+  jsonrpcclient:
+    level: ERROR
+  jsonrpcclient.client.request:
+    propagate: no
+    level: INFO
+    handlers:
+      - request
+  jsonrpcclient.client.response:
+    level: INFO
+    propagate: no
+    handlers:
+      - response
 #loggers:
 #  my_module:
 #    level: ERROR
