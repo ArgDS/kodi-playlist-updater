@@ -9,7 +9,6 @@ unittest2 = "*"
 [packages]
 jsonrpcclient = "*"
 pyyaml = "*"
-logging = "*"
 
 [requires]
 python_version = "3.8"

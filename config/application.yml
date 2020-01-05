@@ -1,11 +1,11 @@
 ---
 ftp:
   host: localhost
-  port: 23
+  port: 21
   username: username
   passwd: password
 directories:
-  ftp-source: /CURRENT
+  ftp-source: /current
   store: ./store
   archive: ./archive
 playlist:

@@ -1,0 +1,7 @@
+#EXTCPlayListM3U::M3U
+#EXTINF:0,VIVA.mp4
+/home/pi/video/VIVA.mp4
+#EXTINF:0,55134-Crab mage.mp4
+/home/pi/video/55134-Crab mage.mp4
+#EXTINF:0,Flip_Fold.mp4
+/home/pi/video/Flip_Fold.mp4

@@ -1,8 +1,8 @@
+import logging
+import os.path
 import sys
 
 import yaml
-import os.path
-import logging
 
 logger = logging.getLogger(__name__)
 
@@ -21,6 +21,7 @@ class FtpConfiguration:
         self.port = entities['port']
         self.username = entities['username']
         self.passwd = entities['passwd']
+        self.protocol = entities['protocol']
 
 
 class DirectoriesConfiguration:
