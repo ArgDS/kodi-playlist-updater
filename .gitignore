@@ -7,3 +7,6 @@ archive
 store-buffer
 /*.m3u
 **/__pycache__
+build
+ddl_api.egg-info
+.eggs
