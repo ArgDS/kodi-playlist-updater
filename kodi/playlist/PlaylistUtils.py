@@ -81,10 +81,11 @@ class PlaylistUtils:
         for updated_file_item in delta.updated_items:
             existed = False
             for new_playlist_item in cleaned_playlist_items:
-                if new_playlist_item.name == updated_file_item:
+                if new_playlist_item.name == updated_file_item.name:
                     existed = True
             if not existed:
-                cleaned_playlist_items.append(updated_file_item)
+                cleaned_playlist_items.append(
+                    PlaylistItem(os.path.join(app_config.directories.store, updated_file_item.name)))
 
         new_playlist.items += cleaned_playlist_items
         return new_playlist
