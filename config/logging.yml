@@ -47,12 +47,12 @@ loggers:
   jsonrpcclient:
     level: ERROR
   jsonrpcclient.client.request:
-    propagate: no
-    level: INFO
+    propagate: not
+    level: ERROR # For debugging mode set INFO
     handlers:
       - request
   jsonrpcclient.client.response:
-    level: INFO
+    level: ERROR # For debugging mode set INFO
     propagate: no
     handlers:
       - response

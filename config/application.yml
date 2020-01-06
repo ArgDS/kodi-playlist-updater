@@ -4,6 +4,7 @@ ftp:
   port: 21
   username: username
   passwd: password
+  protocol: FTP
 directories:
   ftp-source: /current
   store: ./store
